@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Message Classification API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .api-endpoint {
+            margin-top: 20px;
+        }
+
+        .request-response {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SMS Message Classification API Documentation</h1>
+    </header>
+
+    <div class="container">
+        <h2>Introduction</h2>
+        <p>The SMS Message Classification API is designed to classify SMS messages as either "Smishing" (fraudulent) or "Legitimate" based on their content. It uses a pre-trained machine learning model to make predictions. This documentation provides details on how to use the API, including endpoints, request and response formats, and examples.</p>
+
+        <h2>Base URL</h2>
+        <p>The base URL for the API is:</p>
+        <code>http://your-api-domain.com</code>
+
+        <div class="section">
+            <h2>Authentication</h2>
+            <p>The API does not require authentication for access.</p>
+        </div>
+        <!-- Add more sections for Authentication, Endpoint, Usage, Error Handling, Deployment, Testing, and Conclusion -->
+
+        <div class="api-endpoint">
+            <h2>Endpoint</h2>
+            <!-- Include endpoint details here -->
+            GET /detect
+Description
+This endpoint allows you to classify an SMS message as "Smishing" or "Legitimate."
+
+Request Format
+Method: GET
+
+URL: /detect
+
+Headers: None
+
+Parameters:
+
+sms_message (JSON Object):
+sms_message (string, required): The text content of the SMS message to be classified.
+        </div>
+
+        <div class="request-response">
+            <h2>Example Request</h2>
+            <!-- Include example request details here -->
+            GET http://your-api-domain.com/detect?sms_message={"sms_message": "This is a sample SMS message for classification."}
+
+        </div>
+
+        <div class="response-format">
+            <h2>Response format</h2>
+            Status Codes:
+
+200 OK: Successful classification.
+400 Bad Request: Missing or invalid input data.
+Body:
+        </div>
+        <div class="request-response">
+            <h2>Example Response (Successful)</h2>
+            <!-- Include example response details for success here -->{
+    "result": "Legitimate"
+}
+
+        </div>
+
+        <div class="request-response">
+            <h2>Example Response (Invalid Input)</h2>
+            <!-- Include example response details for invalid input here -->
+            {
+                "error": "Missing 'sms_message' field in the request"
+            }
+            
+        </div>
+
+        <div class="usage">
+            <h2>Usage</h2>
+            Make a GET request to the /detect endpoint with the sms_message parameter to classify an SMS message.
+
+The API will return the classification result as "Smishing" or "Legitimate."
+        </div>
+
+        <div class="Error handling">
+            <h2>Error Handling</h2>
+            If the sms_message parameter is missing in the request, the API will return a 400 Bad Request response with an error message
+        </div>
+
+        <div class="Deployment">
+            <h2>Deployment</h2>
+            To deploy this API, follow these steps:
+
+Set up a server or hosting environment for your API.
+
+Install the necessary dependencies, including Flask, scikit-learn, and any other required libraries.
+
+Deploy the API code to your server.
+
+Configure your web server (e.g., Nginx or Apache) to proxy requests to your Flask application.
+
+Ensure that the machine learning model and any required data files are accessible to the API.
+
+Start your API application.
+        </div>
+        
+        <div class="Testing">
+            <h2>Testing</h2>
+            To test the API, you can use tools like curl or Postman to make HTTP requests to the /detect endpoint with sample SMS messages.
+        </div>
+        <div class="Conclusion">
+            <h2>Conclusion</h2>
+            The SMS Message Classification API allows you to classify SMS messages as "Smishing" or "Legitimate." It is a simple and effective tool for identifying potentially fraudulent messages in your application or system. If you encounter any issues or have questions, please contact our support team at support@example.com.
+            
+            
+        </div>
+        <!-- Include more sections as needed -->
+
+    </div>
+</body>
+</html>
