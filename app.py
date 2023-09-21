@@ -18,12 +18,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 #db = SQLAlchemy()
 
 #db.init_app(app)
+'''
 #Database model
 class SMSMessage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(500))
     result = db.Column(db.String(20))
-
+'''
 
 ps = PorterStemmer()
 
@@ -82,7 +83,7 @@ def predict():
         vect = tfidf.transform(data)
 
         result = model.predict(vect)
-    
+    '''
     if result == 1:
         db_msg = 'smishing'
     else:
@@ -90,7 +91,7 @@ def predict():
     new_message = SMSMessage(text=msg, result=db_msg)
     db.session.add(new_message)
     db.session.commit()
-    
+    '''
 #4. Display result on html page
 
     if result == 1:
