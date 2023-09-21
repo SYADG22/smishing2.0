@@ -5,6 +5,7 @@ from nltk.corpus import stopwords
 import nltk
 from nltk.stem.porter import PorterStemmer
 import os
+from flask_sqlalchemy import SQLAlchemy
 
 nltk.download('punkt')
 nltk.download('stopwords')
