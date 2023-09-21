@@ -11,7 +11,7 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 app = Flask(__name__)
-
+'''
 db = SQLAlchemy(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://sms_messages_user:leMmtPVKr4TFxdudP6hYBPWPSnKRtr7Q@dpg-ck624kgs0i2c73chms00-a.oregon-postgres.render.com/sms_messages'
@@ -23,7 +23,7 @@ class SMSMessage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(500))
     result = db.Column(db.String(20))
-
+'''
 ps = PorterStemmer()
 
 def transform_text(text):
@@ -81,7 +81,7 @@ def predict():
         vect = tfidf.transform(data)
 
         result = model.predict(vect)
-    
+    '''
     if result == 1:
         db_msg = 'smishing'
     else:
@@ -89,7 +89,7 @@ def predict():
     new_message = SMSMessage(text=msg, result=db_msg)
     db.session.add(new_message)
     db.session.commit()
-    
+    '''
 #4. Display result on html page
 
     if result == 1:
