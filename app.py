@@ -10,6 +10,11 @@ import os
 nltk.download('punkt')
 nltk.download('stopwords')
 
+#Database model
+class SMSMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(500))
+    result = db.Column(db.String(20))
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://sms_messages_user:leMmtPVKr4TFxdudP6hYBPWPSnKRtr7Q@dpg-ck624kgs0i2c73chms00-a.oregon-postgres.render.com/sms_messages' 
@@ -18,11 +23,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://sms_messages_user:leMmtPVK
 
 db.init_app(app)
 
-#Database model
-class SMSMessage(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(500))
-    result = db.Column(db.String(20))
+
 
 
 ps = PorterStemmer()
